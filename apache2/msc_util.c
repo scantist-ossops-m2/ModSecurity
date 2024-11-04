@@ -112,7 +112,7 @@ char *utf8_unicode_inplace_ex(apr_pool_t *mp, unsigned char *input, long int inp
     unsigned int bytes_left = input_len;
     unsigned char *unicode = NULL;
 
-    if (input == NULL) return NULL;
+    assert(input != NULL);
 
     *changed = 0;
     /* RFC3629 states that UTF-8 are encoded using sequences of 1 to 4 octets. */
