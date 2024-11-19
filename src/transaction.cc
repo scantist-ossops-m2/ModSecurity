@@ -227,7 +227,9 @@ int Transaction::processConnection(const char *client, int cPort,
     const char *server, int sPort) {
     m_clientIpAddress = client;
     m_serverIpAddress = server;
-    m_requestHostName = server;
+    if (m_requestHostName.empty() == true) {
+        m_requestHostName = server;
+    }
     this->m_clientPort = cPort;
     this->m_serverPort = sPort;
     ms_dbg(4, "Transaction context created.");

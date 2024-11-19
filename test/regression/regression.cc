@@ -269,14 +269,14 @@ void perform_unit_test(const ModSecurityTest<RegressionTest> &test,
 
         auto modsec_transaction = context.create_transaction();
 
+        if (t->hostname != "") {
+            modsec_transaction.setRequestHostName(t->hostname);
+        }
+
         clearAuditLog(modsec_transaction.m_rules->m_auditLog->m_path1);
 
         modsec_transaction.processConnection(t->clientIp.c_str(),
             t->clientPort, t->serverIp.c_str(), t->serverPort);
-
-        if (t->hostname != "") {
-            modsec_transaction.setRequestHostName(t->hostname);
-        }
 
         actions(&r, &modsec_transaction, &context.m_server_log);
 
