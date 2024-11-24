@@ -34,7 +34,7 @@
     },
     "expected":{
       "http_code": 200,
-      "debug_log":"Target value: \"[1-9][012]?\" \\(Variable: TIME_MON\\)"
+      "debug_log":"Target value: \"([1-9]|1[012])\" \\(Variable: TIME_MON\\)"
     },
     "rules":[
       "SecRuleEngine On",
